@@ -46,6 +46,14 @@
 	max-height: 5.5rem;
 	border-radius: 0.25rem;
 	overflow: overlay;
+
+	/* To hide the scrollbar */
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.recipe-list-item__tags-container::-webkit-scrollbar {
+	display: none;
 }
 
 @media (max-width: 486px) {
