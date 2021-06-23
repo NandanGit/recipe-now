@@ -1,0 +1,22 @@
+.recipes-list {
+	margin: 5rem;
+	list-style-type: none;
+	padding: 0;
+
+	/* For large screens */
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 2rem;
+	row-gap: 2rem;
+	/* grid-auto-rows: minmax(20rem, auto); */
+}
+
+@media (max-width: 486px) {
+	.recipes-list {
+		margin: 5rem 2rem;
+
+		/* For extra small screens */
+		display: flex;
+		flex-direction: column;
+	}
+}

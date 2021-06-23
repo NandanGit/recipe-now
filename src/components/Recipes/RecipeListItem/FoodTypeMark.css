@@ -1,0 +1,47 @@
+:root {
+	--veg-accent: #080;
+	--non-veg-accent: #800;
+	--egg-accent: #880;
+}
+
+.food-type-mark {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 0.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+}
+
+.food-type-mark .inner-circle {
+	width: 0.5rem;
+	height: 0.5rem;
+	border-radius: 50%;
+}
+
+.food-type-mark.veg {
+	border: 1.5px solid var(--veg-accent);
+}
+
+.food-type-mark.veg .inner-circle {
+	background-color: var(--veg-accent);
+}
+
+.food-type-mark.non-veg {
+	border: 1.5px solid var(--non-veg-accent);
+}
+
+.food-type-mark.non-veg .inner-circle {
+	background-color: var(--non-veg-accent);
+}
+
+.food-type-mark.egg {
+	border: 1.5px solid var(--egg-accent);
+}
+
+.food-type-mark.egg .inner-circle {
+	background-color: var(--egg-accent);
+}

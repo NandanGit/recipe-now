@@ -1,15 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+:root {
+	--main-accent: #226622;
+	--main-accent-compliment: #ccc;
+	--main-accent-darker: #113311;
+	--max-screen-width-1: 486px;
+	--max-screen-width-2: 540px;
+	--max-screen-width-3: 768px;
+	--max-screen-width-4: 940px;
+	--main-font-family: 'Muli';
+	--main-transition-duration: 0.25s;
+}
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-  font-family: 'Noto Sans JP', sans-serif;
+	font-family: 'Muli', sans-serif;
 }
 
 body {
-  margin: 0;
-  background-color: #3f3f3f;
+	margin: 0;
+	background-color: #252525;
+	color: var(--main-accent-compliment);
 }
-

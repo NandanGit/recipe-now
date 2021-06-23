@@ -1,0 +1,59 @@
+.recipe-list-item {
+	height: 20rem;
+	/* height: 100%; */
+	cursor: pointer;
+	transition: all 0.1s ease;
+	position: relative;
+	overflow: overlay;
+}
+
+.recipe-list-item:hover {
+	transform: scale(1.01);
+}
+
+.recipe-list-item:hover .recipe-list-item__img {
+	filter: brightness(1);
+}
+
+.recipe-list-item__img {
+	height: 50%;
+	background-position: center;
+	background-size: cover;
+	filter: brightness(0.75);
+	transition: filter var(--main-transition-duration);
+	box-shadow: inset 0 0 16px 0px #000;
+}
+
+.recipe-list-item-details {
+	padding: 1rem;
+}
+
+.recipe-list-item__title {
+	margin: 0;
+	font-size: 1.2rem;
+}
+
+.recipe-list-item__title {
+	width: 100%;
+	height: 1.5rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.recipe-list-item__tags-container {
+	margin-top: 1rem;
+	max-height: 5.5rem;
+	border-radius: 0.25rem;
+	overflow: overlay;
+}
+
+@media (max-width: 486px) {
+	.recipe-list-item {
+		height: 10rem;
+	}
+	.recipe-list-item__img {
+		height: 60%;
+		width: 5rem;
+	}
+}

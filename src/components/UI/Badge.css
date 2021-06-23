@@ -1,0 +1,12 @@
+.badge {
+	display: inline-block;
+	background-color: var(--main-accent);
+	color: var(--main-accent-compliment);
+	font-weight: bold;
+	/* font-family: 'courier new'; */
+	letter-spacing: 0.1rem;
+	padding: 0.5rem 0.75rem;
+	margin: 0.25rem;
+	max-width: 85%;
+	border-radius: 0.25rem;
+}
