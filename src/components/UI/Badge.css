@@ -10,3 +10,12 @@
 	max-width: 85%;
 	border-radius: 0.25rem;
 }
+
+@media (max-width: 620px) {
+	.badge {
+		letter-spacing: 0.01rem;
+		padding: 0.25rem 0.55rem;
+		margin: 0.2rem 0.1rem;
+		font-weight: normal;
+	}
+}

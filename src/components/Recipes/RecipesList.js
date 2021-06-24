@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import RecipesListItem from './RecipeListItem/RecipeListItem';
 
@@ -44,10 +44,20 @@ const DUMMY_FOOD_ITEMS = [
 ];
 
 function RecipesList(props) {
+	const [isLoading, setIsLoading] = useState(true);
+	useEffect(() => {
+		setTimeout(() => {
+			setIsLoading(false);
+		}, 3000);
+	}, []);
 	const formattedRecipeList = DUMMY_FOOD_ITEMS.map((item) => (
-		<RecipesListItem key={item.id} {...item} />
+		<RecipesListItem isLoading={isLoading} key={item.id} {...item} />
 	));
-	return <div className="recipes-list">{formattedRecipeList}</div>;
+	return (
+		<div className={`recipes-list ${isLoading && 'loading'}`}>
+			{formattedRecipeList}
+		</div>
+	);
 }
 
 export default RecipesList;

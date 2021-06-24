@@ -24,6 +24,11 @@
 	box-shadow: inset 0 0 16px 0px #000;
 }
 
+.img_loader {
+	height: 50%;
+	box-shadow: inset 0 0 16px 0px #111;
+}
+
 .recipe-list-item-details {
 	padding: 1rem;
 }
@@ -56,12 +61,121 @@
 	display: none;
 }
 
-@media (max-width: 486px) {
+/* Loaders */
+.recipe-name-loader {
+	background-color: var(--main-background-color);
+	font-weight: bold;
+	/* font-family: 'courier new'; */
+	letter-spacing: 0.1rem;
+	padding: 0.75rem;
+	margin: 0.25rem;
+	max-width: 85%;
+	border-radius: 0.25rem;
+}
+
+.recipe-tag-loader {
+	display: inline-block;
+	background-color: var(--main-background-color);
+	font-weight: bold;
+	/* font-family: 'courier new'; */
+	letter-spacing: 0.1rem;
+	padding: 0.9rem;
+	margin: 0.25rem;
+	max-width: 85%;
+	border-radius: 0.25rem;
+}
+
+.recipe-tag-loader.tag-1 {
+	width: 30%;
+}
+.recipe-tag-loader.tag-2 {
+	width: 40%;
+}
+.recipe-tag-loader.tag-3 {
+	width: 50%;
+}
+
+.loader {
+	position: relative;
+	overflow: hidden;
+}
+
+.loader::before {
+	content: '';
+	position: absolute;
+	top: 10%;
+	left: -100%;
+	height: 50rem;
+	transform: translateY(-50%) rotate(-10deg);
+	/*width:2.5rem;*/
+	background-color: #aaa;
+	box-shadow: 0 0 24px 2px #fff8;
+}
+
+.img_loader::before {
+	box-shadow: 0 0 72px 2px #fff8;
+}
+
+.loading .loader::before {
+	animation: loading-reflection 1.5s infinite;
+}
+
+@media (max-width: 620px) {
 	.recipe-list-item {
-		height: 10rem;
+		height: 5rem;
+		display: flex;
+		overflow-x: overlay;
 	}
 	.recipe-list-item__img {
-		height: 60%;
-		width: 5rem;
+		height: 100%;
+		width: 25%;
+	}
+	.recipe-list-item-details {
+		padding: 0.5rem;
+		width: 75%;
+	}
+	.recipe-list-item__title {
+		display: inline-block;
+		width: 100%;
+		font-size: 1.2rem;
+		height: 1.5rem;
+	}
+	.img_loader {
+		height: 100%;
+		width: 25%;
+	}
+	.recipe-list-item__tags-container {
+		margin-top: 0;
+	}
+	.recipe-list-item__tags-container .recipe-tag {
+		display: none;
+	}
+	.recipe-list-item__tags-container .recipe-tag:nth-child(1) {
+		display: inline-block;
+	}
+	.recipe-list-item__tags-container .recipe-tag:nth-child(2) {
+		display: inline-block;
+	}
+	.recipe-list-item__tags-container .recipe-tag:nth-child(3) {
+		display: inline-block;
+	}
+
+	.img_loader::before {
+		box-shadow: 0 0 24px 2px #fff8;
+	}
+}
+
+@media (max-width: 480px) {
+	.recipe-list-item__tags-container .recipe-tag:nth-child(3) {
+		display: none;
+	}
+}
+
+@keyframes loading-reflection {
+	0% {
+		left: -50%;
+	}
+	100% {
+		left: 150%;
 	}
 }

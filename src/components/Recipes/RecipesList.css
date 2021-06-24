@@ -11,10 +11,21 @@
 	/* grid-auto-rows: minmax(20rem, auto); */
 }
 
-@media (max-width: 486px) {
+@media (max-width: 1080px) {
+	.recipes-list {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 840px) {
+	.recipes-list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 620px) {
 	.recipes-list {
 		margin: 5rem 2rem;
-
 		/* For extra small screens */
 		display: flex;
 		flex-direction: column;

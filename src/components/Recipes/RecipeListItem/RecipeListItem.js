@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import Card from '../../UI/Card';
 import Badge from '../../UI/Badge';
@@ -10,29 +10,54 @@ function RecipeListItem(props) {
 		imgUrl: itemImgUrl,
 		foodType: itemFoodType,
 		labels: itemLabels,
+		isLoading: itemIsLoading,
 	} = props;
 
 	let recipeTags = [];
 	if (itemLabels) {
-		recipeTags = itemLabels.map((label) => <Badge>{label}</Badge>);
+		recipeTags = itemLabels.map((label) => (
+			<Badge className="recipe-tag">{label}</Badge>
+		));
 	}
 	return (
 		<Card className="recipe-list-item">
 			<div
-				className="recipe-list-item__img"
-				style={{ backgroundImage: `url(${itemImgUrl})` }}
+				className={`loader ${
+					!itemIsLoading ? 'recipe-list-item__img' : 'img_loader'
+				}`}
+				style={
+					!itemIsLoading
+						? { backgroundImage: `url(${itemImgUrl})` }
+						: {}
+				}
 			></div>
 			<div className="recipe-list-item-details">
-				<p className="recipe-list-item__title">
-					Tomato Salad Grilled Pizza
-				</p>
-				{recipeTags.length !== 0 && (
-					<div className="recipe-list-item__tags-container">
-						{recipeTags}
-					</div>
+				{itemIsLoading ? (
+					<Fragment>
+						<div className="loader recipe-name-loader"></div>
+						<div className="recipe-list-item__tags-container">
+							<div className="loader recipe-tag-loader tag-1"></div>
+							<div className="loader recipe-tag-loader tag-2"></div>
+							<div className="loader recipe-tag-loader tag-3"></div>
+						</div>
+					</Fragment>
+				) : (
+					<Fragment>
+						<p className="recipe-list-item__title">
+							Tomato Salad Grilled Pizza
+						</p>
+						{recipeTags.length !== 0 && (
+							<div className="recipe-list-item__tags-container">
+								{recipeTags}
+							</div>
+						)}
+					</Fragment>
 				)}
 			</div>
-			<FoodTypeMark foodType={itemFoodType} />
+			<FoodTypeMark
+				className="loader"
+				foodType={!itemIsLoading ? itemFoodType : 'loading'}
+			/>
 		</Card>
 	);
 }
