@@ -23,6 +23,29 @@ html {
 
 body {
 	margin: 0;
-	background-color: #252525;
+	background-color: var(--main-background-color);
 	color: var(--main-accent-compliment);
+}
+
+/* Scrollbar */
+
+/* width */
+::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: var(--main-background-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: var(--main-accent-darker);
+	border-radius: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: var(--main-accent);
 }

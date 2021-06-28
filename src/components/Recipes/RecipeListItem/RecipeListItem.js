@@ -11,12 +11,15 @@ function RecipeListItem(props) {
 		foodType: itemFoodType,
 		labels: itemLabels,
 		isLoading: itemIsLoading,
+		name: recipeName,
 	} = props;
 
 	let recipeTags = [];
 	if (itemLabels) {
 		recipeTags = itemLabels.map((label) => (
-			<Badge className="recipe-tag">{label}</Badge>
+			<Badge key={label + Math.random()} className="recipe-tag">
+				{label}
+			</Badge>
 		));
 	}
 	return (
@@ -43,9 +46,7 @@ function RecipeListItem(props) {
 					</Fragment>
 				) : (
 					<Fragment>
-						<p className="recipe-list-item__title">
-							Tomato Salad Grilled Pizza
-						</p>
+						<p className="recipe-list-item__title">{recipeName}</p>
 						{recipeTags.length !== 0 && (
 							<div className="recipe-list-item__tags-container">
 								{recipeTags}
