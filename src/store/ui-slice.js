@@ -1,12 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-	setRecipeLoadingState,
-	setErrorMessage,
-	updateBeginningState,
-} from './actions/ui-actions';
+import { setRecipeLoadingState, setErrorMessage } from './actions/ui-actions';
 
 const initialUIState = {
-	isBeginning: true,
 	isRecipesLoading: false,
 };
 
@@ -17,7 +12,6 @@ const UISlice = createSlice({
 		// Synchronous Actions
 		setRecipeLoadingState,
 		setErrorMessage,
-		updateBeginningState,
 		// -------------------
 		// Asynchronous Actions
 	},

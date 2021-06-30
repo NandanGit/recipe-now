@@ -1,0 +1,24 @@
+.recipes-pagination {
+	margin: 0 5rem 5rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.recipes-pagination .pagination-button {
+	cursor: pointer;
+}
+.recipes-pagination .pagination-button:hover {
+	background-color: var(--main-accent-dark);
+}
+
+.recipes-pagination .pagination-button:disabled {
+	background-color: #888;
+	opacity: 0.5;
+	cursor: default;
+}
+
+@media (max-width: 620px) {
+	.recipes-pagination {
+		margin: 0 2rem 3rem;
+	}
+}

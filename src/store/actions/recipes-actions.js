@@ -4,12 +4,29 @@ export const addRawData = (state, action) => {
 	state.totalPages += 1;
 };
 
-export const clearRawData = (state) => {
-	state.rawData = [];
+export const updateSearchQuery = (state, action) => {
+	state.searchQuery = action.payload.searchQuery;
 };
 
-export const updateFormattedRecipesList = (state) => {
-	const currentRawDataList = state.rawData[state.currentPage - 1].hits;
+export const resetRecipesState = (state) => {
+	state.searchQuery = false;
+	state.nextPageLink = false;
+	state.currentPage = 0;
+	state.totalPages = 0;
+	state.rawData = [];
+	state.formattedRecipesList = [];
+};
+
+export const updateCurrentPage = (state, action) => {
+	const newPage = action.payload.newPage;
+	state.currentPage = newPage;
+	if (!state.rawData.length || !newPage) {
+		return console.log('No data to update');
+	}
+
+	// Updating the formatted list
+	const currentRawData = state.rawData[newPage - 1];
+	const currentRawDataList = currentRawData.hits;
 	const formattedRecipesList = currentRawDataList.map((currItem, ind) => {
 		const {
 			label,
@@ -38,18 +55,6 @@ export const updateFormattedRecipesList = (state) => {
 		if (totalTime) {
 			labels.push(`${totalTime} mins`);
 		}
-		// if (cuisineType) {
-		// 	labels = labels.concat(cuisineType);
-		// }
-		// if (dishType) {
-		// 	labels = labels.concat(dishType);
-		// }
-		// if (mealType) {
-		// 	labels = labels.concat(mealType);
-		// }
-		// if (dietLabels) {
-		// 	labels = labels.concat(dietLabels);
-		// }
 		labels = labels
 			.concat(cuisineType || [])
 			.concat(dishType || [])
@@ -67,9 +72,13 @@ export const updateFormattedRecipesList = (state) => {
 		};
 	});
 	state.formattedRecipesList = formattedRecipesList;
+
+	// Update the nextPageLink
+	const nextLink = currentRawData._links.next || { href: false };
+	state.nextPageLink = nextLink.href;
 };
 
-export const updateCurrentPage = (state, action) => {
-	const newPage = action.payload.newPage;
-	state.currentPage = newPage;
-};
+// export const updateNextPage = (state) => {
+// 	const currentPageData = state.rawData[state.currentPage - 1];
+// 	state.nextPageLink = currentPageData._links.next || false;
+// };
